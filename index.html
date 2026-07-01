@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b6f5f" />
+  <title>Agenda de Escala</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Escala 24x72</p>
+      <h1>AGENDA DE ESCALA</h1>
+      <p class="subtitle">Organização prática de serviço e permutas</p>
+    </div>
+  </header>
+
+  <nav class="tabs" aria-label="Abas do aplicativo">
+    <button class="tab active" data-tab="config">Configuração</button>
+    <button class="tab" data-tab="policiais">Policiais</button>
+    <button class="tab" data-tab="escala">Escala</button>
+    <button class="tab" data-tab="permutas">Permutas</button>
+    <button class="tab" data-tab="ajuda">Ajuda</button>
+  </nav>
+
+  <main>
+    <section id="config" class="panel active">
+      <div class="card">
+        <h2>Configuração</h2>
+        <div class="grid2">
+          <label>Mês
+            <select id="mes"></select>
+          </label>
+          <label>Ano
+            <input id="ano" type="number" min="2024" max="2100" inputmode="numeric" />
+          </label>
+          <label>Dia inicial da escala
+            <input id="diaInicial" type="number" min="1" max="31" inputmode="numeric" />
+          </label>
+          <label>Regra
+            <input value="24h de serviço + 72h de folga" disabled />
+          </label>
+        </div>
+        <button class="primary" id="btnGerar">Gerar / atualizar escala</button>
+        <button class="soft" id="btnSalvar">Salvar dados no celular</button>
+        <button class="danger" id="btnLimpar">Limpar tudo / nova equipe</button>
+        <p class="msg" id="msg"></p>
+      </div>
+    </section>
+
+    <section id="policiais" class="panel">
+      <div class="card">
+        <div class="titleRow">
+          <h2>Cadastro dos Policiais</h2>
+          <button class="soft small" id="btnAdd">+ Adicionar</button>
+        </div>
+        <p class="hint">Todos iniciam pelo Turno A. Preencha o dia inicial de cada policial conforme a escala base.</p>
+        <div id="listaPoliciais"></div>
+      </div>
+    </section>
+
+    <section id="escala" class="panel">
+      <div class="card printArea" id="areaEscala">
+        <div class="printHeader">
+          <h2>Escala Gerada</h2>
+          <p id="resumoEscala"></p>
+        </div>
+        <div class="actions noPrint">
+          <button class="primary" id="btnGerar2">Atualizar escala</button>
+          <button class="accent" id="btnPdf">Salvar em PDF / imprimir</button>
+          <button class="soft" id="btnImagem">Salvar imagem da escala</button>
+        </div>
+        <div id="tabelaEscala" class="tableWrap"></div>
+      </div>
+    </section>
+
+    <section id="permutas" class="panel">
+      <div class="card">
+        <h2>Permutas</h2>
+        <p class="hint">Use os dados do policial e abra o formulário oficial para solicitar autorização.</p>
+        <a class="linkButton" href="https://forms.gle/TAM9Mi6jKYnN3dY87" target="_blank" rel="noopener">Abrir formulário oficial de permuta</a>
+        <div id="listaPermutas"></div>
+      </div>
+    </section>
+
+    <section id="ajuda" class="panel">
+      <div class="card">
+        <h2>Ajuda rápida</h2>
+        <p><b>Para usar como app:</b> abra este link no Safari ou Chrome e escolha “Adicionar à Tela de Início”.</p>
+        <p><b>Se recebeu o link já preenchido:</b> toque em “Limpar tudo / nova equipe” e cadastre sua equipe.</p>
+        <p><b>Para PDF:</b> gere a escala, toque em “Salvar em PDF / imprimir” e escolha “Salvar em Arquivos” ou “Salvar como PDF”.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <b>Criado por: G.D.S.</b><br />
+    <small>Aplicativo criado sem fins lucrativos e somente para uso pessoal, com intuito de ajudar o usuário a organizar melhor sua escala de serviço. Não oficializado.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
