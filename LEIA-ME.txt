@@ -1,0 +1,12 @@
+AGENDA DE ESCALA - INSTALAÇÃO NO GITHUB PAGES
+
+Arquivos necessários:
+- index.html
+- style.css
+- app.js
+- manifest.webmanifest
+- service-worker.js
+- icon.svg
+
+Suba todos esses arquivos na raiz do repositório do GitHub Pages.
+Depois abra o link no Safari/Chrome e adicione à tela inicial.
